@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover simple, healthy recipes made for real-life schedules.">
+  <title>Healthy Recipe Finder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Healthy Recipe Finder home">
+      <span class="brand-mark" aria-hidden="true">◖</span>
+      <span>Healthy Recipe Finder</span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a class="active" href="#recipes">Recipes</a>
+    </nav>
+    <a class="header-cta" href="#recipes">Browse recipes</a>
+  </header>
+
+  <main id="home">
+    <section class="intro" id="about">
+      <p class="eyebrow">GOOD FOOD, MADE SIMPLE</p>
+      <h1>Explore our simple, healthy recipes</h1>
+      <p class="intro-copy">Discover eight quick, whole-food dishes that fit real-life schedules and taste<br class="desktop-break"> amazing. Use the search bar to find a recipe by name or ingredient, or simply scroll<br class="desktop-break"> the list and let something delicious catch your eye.</p>
+    </section>
+
+    <section class="recipes-section" id="recipes" aria-label="Recipe collection">
+      <div class="toolbar">
+        <div class="filters">
+          <label class="sr-only" for="prepFilter">Maximum preparation time</label>
+          <select id="prepFilter">
+            <option value="all">Max Prep Time</option>
+            <option value="5">5 minutes or less</option>
+            <option value="10">10 minutes or less</option>
+            <option value="15">15 minutes or less</option>
+          </select>
+          <label class="sr-only" for="cookFilter">Maximum cooking time</label>
+          <select id="cookFilter">
+            <option value="all">Max Cook Time</option>
+            <option value="0">No cooking</option>
+            <option value="10">10 minutes or less</option>
+            <option value="15">15 minutes or less</option>
+            <option value="20">20 minutes or less</option>
+          </select>
+        </div>
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <span class="sr-only">Search recipes</span>
+          <input id="searchInput" type="search" placeholder="Search by name or ingredient..." autocomplete="off">
+          <button id="clearSearch" class="clear-search" type="button" aria-label="Clear search" hidden>×</button>
+        </label>
+      </div>
+      <p class="results-count" id="resultsCount" aria-live="polite"></p>
+      <div class="recipe-grid" id="recipeGrid"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <span class="empty-icon">🥑</span>
+        <h2>No recipes found</h2>
+        <p>Try a different ingredient or loosen your time filters.</p>
+        <button id="resetFilters" class="reset-button" type="button">Reset filters</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with <span aria-label="love">❤️</span> and <span aria-label="avocado">🥑</span></p>
+    <div class="social-links" aria-label="Social links">
+      <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noreferrer">◎</a>
+      <a href="https://bsky.app/" aria-label="Bluesky" target="_blank" rel="noreferrer">🦋</a>
+      <a href="https://www.tiktok.com/" aria-label="TikTok" target="_blank" rel="noreferrer">♪</a>
+    </div>
+  </footer>
+
+  <dialog class="recipe-dialog" id="recipeDialog" aria-labelledby="dialogTitle">
+    <button class="dialog-close" id="dialogClose" aria-label="Close recipe">×</button>
+    <img id="dialogImage" class="dialog-image" src="" alt="">
+    <div class="dialog-content">
+      <p class="dialog-kicker">HEALTHY RECIPE</p>
+      <h2 id="dialogTitle"></h2>
+      <p id="dialogDescription" class="dialog-description"></p>
+      <div class="dialog-stats" id="dialogStats"></div>
+      <div class="dialog-columns">
+        <section>
+          <h3>Ingredients</h3>
+          <ul id="dialogIngredients"></ul>
+        </section>
+        <section>
+          <h3>Method</h3>
+          <ol id="dialogSteps"></ol>
+        </section>
+      </div>
+    </div>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
